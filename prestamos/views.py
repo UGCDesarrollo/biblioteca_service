@@ -14,8 +14,8 @@ class PrestamoViewSet(viewsets.ModelViewSet):
     serializer_class = PrestamoSerializer
     permission_classes = [HasAPIKey | IsAuthenticated]
     filter_backends = [DjangoFilterBackend,filters.SearchFilter]
-    filterset_fields = ['Nro_Documento']
-    search_fields = ['Titulo','Autor','Biblioteca_material']  # Permitir búsquedas por identificación de la persona
+    filterset_fields = ['nro_documento']
+    search_fields = ['titulo','autor','biblioteca_material']  # Permitir búsquedas por identificación de la persona
     # http_method_names = ['get']  # Solo permitir GET (listar y ver)
     
     # @ratelimit(key='ip', rate='5/m')  # Limitar a 5 solicitudes por minuto

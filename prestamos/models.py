@@ -6,16 +6,16 @@ class UserAPIKey(APIKey):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
 class Prestamo(models.Model):
-    Nro_Documento = models.CharField(max_length=40)  # Identificación de la persona
-    Titulo = models.TextField()    # Identificador del libro
-    Autor = models.TextField()    # Identificador del libro
-    Biblioteca_material = models.CharField(max_length=40)
-    Fecha_prestamo = models.DateTimeField(null=True, blank=True)  # Fecha del préstamo
-    Fecha_devolucion = models.DateTimeField(null=True, blank=True)  # Fecha de devolución
+    nro_documento = models.CharField(max_length=40,verbose_name="nro_documento",null=True, blank=True,)  # Identificación de la persona
+    titulo = models.TextField(verbose_name="titulo",null=True, blank=True,)    # Identificador del libro
+    autor = models.TextField(verbose_name="autor",null=True, blank=True,)    # Identificador del libro
+    biblioteca_material = models.CharField(max_length=40,verbose_name="biblioteca_material",null=True, blank=True,)
+    fecha_prestamo = models.DateTimeField(null=True, blank=True,verbose_name="fecha_prestamo")  # Fecha del préstamo
+    fecha_devolucion = models.DateTimeField(null=True, blank=True,verbose_name="fecha_devolucion")  # Fecha de devolución
     
     class Meta:
         db_table = 'temporal_etl'
     def __str__(self):
 
-        return f"Préstamo {self.Nro_Documento} - Libro {self.Titulo}"
+        return f"Préstamo {self.nro_documento} - Libro {self.titulo}"
 
